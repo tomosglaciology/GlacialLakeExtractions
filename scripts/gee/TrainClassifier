@@ -1,0 +1,31 @@
+var segtools = require('users/tomosdanielmorgan/GlacialLakeExtraction:SegmentationClassification');
+
+exports.train_classifier = function (image, trainingPoints, ntrees){
+  var img_seg = segtools.segment(image);
+//  img_seg = segtools.glcm_bands(img_seg);
+  
+  var reduce = segtools.reduce_bands(img_seg);
+  var training_obia = reduce.select(reduce.bandNames()).sampleRegions({
+  collection: trainingPoints,
+  properties: ['landcover'],
+  scale: 30
+
+  });
+  //split training/testing
+  var withRandom = training_obia.randomColumn('random');
+  var split = 0.7;
+  var trainingPartition = withRandom.filter(ee.Filter.lt('random',split));
+  var testingPartition = withRandom.filter(ee.Filter.gte('random', split));
+
+  // initialize a random forest with 100 "trees"
+  var classifier = ee.Classifier.smileRandomForest(ntrees).train({
+    features: trainingPartition,
+    classProperty: 'landcover',
+    inputProperties: reduce.bandNames()
+  });
+  
+  var test = testingPartition.classify(classifier);
+  var cm = test.errorMatrix('landcover', 'classification');
+
+  return classifier //, cm
+}

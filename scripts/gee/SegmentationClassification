@@ -1,0 +1,67 @@
+exports.segment = function (image){
+  var seedSize = 4; //corresponds to 4 * 30 = 120 m spacing;
+  var clusterScale = 30;
+  
+  var seeds = ee.Algorithms.Image.Segmentation.seedGrid(seedSize);
+  
+  //run simple non-iterative clustering (SNIC) on the image, using our seed layer
+  var snic = ee.Algorithms.Image.Segmentation.SNIC({
+    image: image.select('B7','B6','B5', 'B4', 'B3', 'B2'),
+    compactness: 0,
+    connectivity: 4,
+    neighborhoodSize: 128,
+    seeds: seeds
+  });
+
+  // select the clusters (image segments, or objects) from our snic layer
+  var clusters = snic.select("clusters");
+  
+  
+  // add the id layer to the image
+  return image.addBands(clusters.select('clusters').rename('id'));
+
+}
+
+exports.glcm_bands = function (image){
+  
+  var gray = image.expression(
+  '(0.3 * NIR) + (0.59 * R) + (0.11 * G)',
+  {'NIR': image.select('B5'),
+   'R': image.select('B4'),
+   'G': image.select('B3')
+}).rename('gray');
+
+  var glcm = gray.toInt().glcmTexture({size: 2})
+  .reproject({crs: gray.projection(), scale: 30});
+  
+  image = image.addBands(glcm.select('gray_asm'))
+  
+  return image
+
+}
+
+exports.reduce_bands = function (image) {
+
+  var img_mean = image.reduceConnectedComponents({
+    reducer: ee.Reducer.mean(),
+    labelBand: 'id'
+  });
+  
+  var img_std = image.reduceConnectedComponents({
+    reducer: ee.Reducer.stdDev(),
+    labelBand: 'id'
+  });
+  
+  var img_med = image.reduceConnectedComponents({
+    reducer: ee.Reducer.median(),
+    labelBand: 'id'
+  });
+  
+  var pred_bands = ee.Image.cat([
+    img_mean,
+    img_std,
+    img_med
+  ]).float();
+  
+  return pred_bands
+}

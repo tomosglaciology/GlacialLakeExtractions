@@ -1,0 +1,9 @@
+var trainedClassifier = require('users/tomosdanielmorgan/GlacialLakeExtraction:TrainClassifier');
+
+exports.applying_classifier = function (classifier){
+  return function (image){
+      var obia = image.classify(classifier); //Defines the classifier.
+      return obia; // Applies the classifier.
+  };
+};
+//}
