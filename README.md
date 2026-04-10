@@ -6,7 +6,7 @@ Written by Tomos Morgan, Robert W. McNabb and Paul Dunlop.
 # Motivation
 Mapping water bodies over a large study area and over decades using multiple satellite images is data intensive, with file sizes ranging from ~200 MB for complete Landsat 4 and 5 scenes to ~1 GB for Landsat 8 and 9 scenes (Ali et al., 2023). Developing an approach using the cloud-based capabilities of Google Earth Engine (GEE; Gorelick et al., 2017) enables users to reduce the time and cost of downloading, storing and processing images locally, allowing this approach to be quickly applied to the whole Landsat collection for the chosen study area. In this study we present an OBIA approach to mapping glacial lakes developed using GEE. We apply this approach to various Landsat scenes, testing the impact of varying segmentation parameters and input features.
 
-The aims f this research were:
+The aims of this research were:
 1)	To determine the most efficient automated method to classify water by conducting experiments within GEE to investigate the effects of changing different segmentation and classifier parameters.
 2)	To investigate the importance that the inclusion of input features such as hillshade, slope, MNDWI and NDVI has in the classification of water and other landcover types. 
 3)	To study whether training a classifier with a single image can produce accurate classification maps when applied across the whole Landsat collection. 
