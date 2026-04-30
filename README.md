@@ -19,12 +19,14 @@ Below is all the information on each folder in our repository.
 
 # Datasets
 
-# External data
 
 # Figures
 The [figures](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/figures) folder contains the PNG files of all figures generated in this study.
 
 # Scripts
+The [scripts](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts) folder contains all scripts used for figure creations for our paper.
+
+This includes the subfolder of [figure scripts](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/figure_scripts) and (https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/gee) that includes all of the jupyter notebook workflows and the Google Earth Engine codes that was required for the figures and codes created in this study.
 
 # References
 * Ali, A., Dunlop, P., Coleman, S., Kerr, D., McNabb, R. W., and Noormets, R.: Glacier area changes in Novaya Zemlya from 1986–89 to 2019–21 using object-based image analysis in Google Earth Engine, J. Glaciol., 69, 1305–1316, https://doi.org/10.1017/jog.2023.18, 2023.
