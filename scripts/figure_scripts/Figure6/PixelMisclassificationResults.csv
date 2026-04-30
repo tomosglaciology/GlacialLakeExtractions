@@ -1,0 +1,9 @@
+﻿Pixel Misclassification,Misclassified pixels before additional features,Misclassified pixels after additional features
+Water,5.9,9
+Ice,2.9,0
+Dark Vegetation,23.5,16.4
+Light Vegetation,14.7,7.5
+Bare Surface,32.4,17.9
+Shadow,26.5,49.3
+Number of pixels misclassified,34,67
+Number of pixels no data,33,35
