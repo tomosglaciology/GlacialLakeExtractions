@@ -22,6 +22,7 @@ Below is all the information on each folder in our repository.
 # External data
 
 # Figures
+The [figures](https://github.com/tomosglaciology/NewZealand_GlacialLakeExtractions/tree/main/figures) folder contains the PNG files of all figures generated in this study.
 
 # Scripts
 
