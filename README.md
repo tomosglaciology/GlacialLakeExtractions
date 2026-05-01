@@ -17,9 +17,6 @@ The aims of this research were:
 # Repository description
 Below is all the information on each folder in our repository.
 
-# Datasets
-
-
 # Figures
 The [figures](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/figures) folder contains the PNG files of all figures generated in this study.
 
