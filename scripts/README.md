@@ -4,10 +4,9 @@ This directory contains all scripts used for data processing, analysis, and figu
 
 ### Subfolders
 
-- [figure_scripts](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/figure_scripts)  
-  Jupyter notebooks and associated outputs used to generate the figures presented in this study.
+- [Figure_scripts](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/figure_scripts) contains Jupyter notebooks and associated outputs used to generate the figures presented in this study.
 
-- [gee](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/gee) Google Earth Engine (GEE) scripts used for data extraction, preprocessing, and analysis.
+- [GEE](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/gee) contains Google Earth Engine (GEE) scripts used for data extraction, preprocessing, and analysis.
 
 ### Notes
 
