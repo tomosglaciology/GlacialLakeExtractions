@@ -25,7 +25,7 @@ The folder includes three main scripts:
 All steps contribute to the final OBIA implementation, which is consolidated in the main script:  
 [OBIA_GlacialLakeExtraction](https://github.com/tomosglaciology/GlacialLakeExtractions/blob/main/scripts/gee/OBIA_GlacialLakeExtraction).
 
-For a more detailed breakdown, [Open the script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FGlacialLakeExtraction%3AOBIA_GlacialLakeExtraction)
+For a more detailed breakdown, [Open the script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FGlacialLakeExtraction%3AOBIA_GlacialLakeExtraction).
 
 ### Notes
 
