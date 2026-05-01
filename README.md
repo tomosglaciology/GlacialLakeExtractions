@@ -1,7 +1,7 @@
 # Automated glacial lake extraction using an Object-Based Image Analysis approach in Google Earth Engine
 Written by Tomos Morgan, Robert W. McNabb and Paul Dunlop.
 
-**[Open the script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FEarthObservation%3AOBIA_example)**.
+**[Open the script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FGlacialLakeExtraction%3AOBIA_GlacialLakeExtraction)**.
 
 # Motivation
 Mapping water bodies over a large study area and over decades using multiple satellite images is data intensive, with file sizes ranging from ~200 MB for complete Landsat 4 and 5 scenes to ~1 GB for Landsat 8 and 9 scenes (Ali et al., 2023). Developing an approach using the cloud-based capabilities of Google Earth Engine (GEE; Gorelick et al., 2017) enables users to reduce the time and cost of downloading, storing and processing images locally, allowing this approach to be quickly applied to the whole Landsat collection for the chosen study area. In this study we present an OBIA approach to mapping glacial lakes developed using GEE. We apply this approach to various Landsat scenes, testing the impact of varying segmentation parameters and input features.
