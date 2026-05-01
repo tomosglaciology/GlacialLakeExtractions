@@ -9064,7 +9064,7 @@ var all = funcs.allLandsat(area, 20, 20, 2023, 2023, 2, 2, 24, 24)
   .map(addIndices)
 
 print(all);
-Map.centerObject(area, 9.5);
+Map.centerObject(ROS, 9.5);
 
 var ROI = ee.Image('LANDSAT/LC09/C02/T1_TOA/LC09_075090_20230224').clip(area);
 Map.addLayer(ROI, {bands: ['B4', 'B3', 'B2'], min: 0, max: 0.6}, 'InspectionImage');
@@ -9121,14 +9121,11 @@ var Obia_collection = reducing.map(classifier_applied);
 print(Obia_collection);
 
 Map.addLayer(Obia_collection, {bands: ['classification'], min: 1, max: 6}, 'ClassifiedImage');
-Map.addLayer(Obia_collection, {bands: ['classification'], min: 1, max: 2}, 'WaterImage');
-
 
 var batch = require('users/fitoprincipe/geetools:batch');
 batch.Download.ImageCollection.toDrive(Obia_collection, 'GlacialLakeExtraction', {
   scale: 30,
   crs: 'epsg:32759',
   maxPixels: 1e13,
-  region: area
+//  region: area
 });
-
