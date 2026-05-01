@@ -12,7 +12,7 @@ The folder includes three main scripts:
   Performs image segmentation and prepares features for object-based image analysis.
 
 - **TrainClassifier** (`training_class`)  
-  Trains the classification model using labelled data.
+  Trains the classification model using training data.
 
 - **ApplyingClassifier** (`applying_class`)  
   Applies the trained classifier to segmented imagery to generate the final OBIA classifications.
