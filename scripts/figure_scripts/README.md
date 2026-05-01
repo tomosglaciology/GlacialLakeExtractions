@@ -24,5 +24,4 @@ Files are grouped by figure and follow a consistent naming pattern:
 
 ### Notes
 
-- Not all figures will have a `.csv` file if the data is derived from other sources or processed within the notebook.  
 - An `environment.yml` file is provided to reproduce the computational environment required to run the notebooks.  
