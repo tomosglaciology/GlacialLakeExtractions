@@ -1,6 +1,6 @@
 ## Google Earth Engine (GEE) Scripts
 
-This folder contains Google Earth Engine (GEE) scripts used for data extraction, preprocessing, and development of the Object-Based Image Analysis (OBIA) workflow.
+This folder contains Google Earth Engine scripts used for data extraction, preprocessing, and development of the Object-Based Image Analysis (OBIA) workflow.
 
 The scripts are designed to be used together and contribute to different stages of filter and visualise the image collection and the OBIA process.
 
