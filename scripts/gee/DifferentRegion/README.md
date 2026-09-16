@@ -117,4 +117,6 @@ scenes) before using results for scientific reporting.
 
 Want to try it yourself? [Open the script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FGlacialLakeExtraction%3APatagoniaExample).
 
+[Add the entire GlacialLakeExtraction repository to your own GEE account](https://code.earthengine.google.com/?accept_repo=users/tomosdanielmorgan/GlacialLakeExtraction).
+
 If anything here doesn't work as described, please open an issue on this repository.
