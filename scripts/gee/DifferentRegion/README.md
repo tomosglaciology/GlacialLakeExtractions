@@ -115,4 +115,6 @@ scenes) before using results for scientific reporting.
 | `OBIA_GlacialLakeExtraction` | Applies the classifier within the original training region |
 | **`NewRegion`** | **Applies the trained classifier to any new region — six `#`-marked lines to edit (this tutorial)** |
 
+Want to try it yourself? [Open the script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FGlacialLakeExtraction%3APatagoniaExample).
+
 If anything here doesn't work as described, please open an issue on this repository.
