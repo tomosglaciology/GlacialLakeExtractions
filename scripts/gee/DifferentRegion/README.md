@@ -2,10 +2,7 @@
 
 This tutorial accompanies [`NewRegion`](./NewRegion) and walks
 through how to use the classifier trained in this repository (originally on New Zealand imagery)
-to map glacial lakes / ice in **any other region**, without retraining.
-
-It was added in response to reviewer feedback asking for a clearer, documented route from
-"here is a trained classifier" to "here is how you apply it somewhere new."
+to map glacial lakes / ice in **any other region**.
 
 ## Overview
 
