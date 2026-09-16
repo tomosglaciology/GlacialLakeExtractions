@@ -1,0 +1,80 @@
+// #1 EDIT: point this at the classifier asset you have been given access to
+// Imports OBIA classifier from NZ
+var savedClassifier = ee.Classifier.load('projects/ee-tomosdanielmorgan/assets/NZ_OBIA_Classifier');
+// Import Landsat image filter function
+var funcs = require('users/tomosdanielmorgan/ProgrammingFunctions:Landsats_days');
+// Import segmentation function
+var segtools = require('users/tomosdanielmorgan/ProgrammingFunctions:SegmentationClassification');
+//Import classifier application function
+var applying_class = require('users/tomosdanielmorgan/ProgrammingFunctions:ApplyingClassifier');
+//Imports Copernicus 30 m DEM. 
+var dem = ee.ImageCollection('COPERNICUS/DEM/GLO30_2024_1')
+  .mosaic()
+  .select('DEM');
+var slope = ee.Terrain.slope(dem)
+  .rename('Slope');
+
+// Adds spectral indices and DEM-derived terrain features to improve
+//classification by enhancing the separation between water, vegetation,
+// bare surfaces, ice, and terrain shadow.function 
+function addIndices(image) {
+  var mndwi = image.normalizedDifference(['B3', 'B6']).rename('MNDWI');
+  var ndvi = image.normalizedDifference(['B5', 'B4']).rename('NDVI');  
+
+  var azimuth = ee.Number(image.get('SUN_AZIMUTH'));  
+  var elevation = ee.Number(image.get('SUN_ELEVATION'));  
+
+  var hillshade = ee.Terrain.hillshade(dem, azimuth, elevation).rename('Hillshade');
+  var slope = ee.Terrain.slope(dem);
+
+  return image.addBands([hillshade, ndvi, mndwi, slope]);
+}
+
+// #2 EDIT: replace "area" with your own region of interest (ee.Geometry or imported asset)
+// #3 EDIT: adjust cloud thresholds (20, 20), year range (2017, 2026), and month/day window (1, 3, 1, 31) for your region/season
+// Load Landsat 4–9 imagery using the defined geometry, cloud thresholds, date range, and day/month filters.
+var all = funcs.allLandsat(area, 20, 20, 2017, 2026, 1, 3, 1, 31)
+// #4 EDIT: only needed if you want to restrict to one Landsat path/row - otherwise remove this .filter() block entirely
+// Defines absolute path and row if necessary. 
+  .filter(
+    ee.Filter.and(
+      ee.Filter.eq('WRS_PATH', 231),
+      ee.Filter.eq('WRS_ROW', 95)
+    )
+  )
+  .select(['B[2-7]', 'B10'])
+  .map(addIndices);
+
+print('Image Collection:', all);
+// Centers defined geometry
+Map.centerObject(area, 10)
+
+// #5 EDIT: swap this scene ID for one that actually falls within your own AOI/path-row, for the preview layer
+var ROI = ee.Image('LANDSAT/LC08/C02/T1_TOA/LC08_231095_20210303').clip(area)
+Map.addLayer(ROI, {bands: ['B5', 'B4', 'B3'], min: 0, max: 0.4}, 'false colour');
+
+var img_seg = all.map(segtools.segment);
+var glcm = img_seg.map(segtools.glcm_bands);
+var reducing = glcm.map(segtools.reduce_bands);
+
+var classifier_applied = applying_class.applying_classifier(savedClassifier);
+
+var Obia_collection = reducing.map(classifier_applied);
+
+var Obia_clipped = Obia_collection.map(function(image) {
+  return image.clip(area);
+});
+
+Map.addLayer(Obia_clipped, {bands: ['classification'], min: 1, max: 2}, 'OBIA');
+
+var batch = require('users/fitoprincipe/geetools:batch');
+// #6 EDIT: rename 'Patagonia_OBIA' and 'Patagonia_image' below to reflect your own region
+batch.Download.ImageCollection.toDrive(Obia_clipped, 'Patagonia_OBIA', {
+  scale: 30,
+  maxPixels: 1e13,
+});
+
+batch.Download.ImageCollection.toDrive(all, 'Patagonia_image', {
+  scale: 30,
+  maxPixels: 1e13,
+});
