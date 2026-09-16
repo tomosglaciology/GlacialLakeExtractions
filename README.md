@@ -25,6 +25,17 @@ The [scripts](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/mai
 
 This includes the subfolder of [figure scripts](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/figure_scripts) and [gee](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/gee) that includes all of the jupyter notebook workflows and the Google Earth Engine codes that was required for the figures and codes created in this study.
 
+# Applying the classifier to a new region
+This repository's OBIA classifier was trained on New Zealand imagery, but is designed to be
+broadly applicable to other glaciated regions. The
+[DifferentRegion](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/gee/DifferentRegion)
+folder contains a ready-to-adapt script (`NewRegion`) and a step-by-step tutorial for applying
+the trained classifier at your own study area.
+
+**[Open the NewRegion script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FGlacialLakeExtraction%3ANewRegion)**.
+
+If you want to add the whole repository to your own Google Earth Engine account, you can do so here: [Add GlacialLakeExtraction repository](https://code.earthengine.google.com/?accept_repo=users/tomosdanielmorgan/GlacialLakeExtraction).
+
 # References
 * Ali, A., Dunlop, P., Coleman, S., Kerr, D., McNabb, R. W., and Noormets, R.: Glacier area changes in Novaya Zemlya from 1986–89 to 2019–21 using object-based image analysis in Google Earth Engine, J. Glaciol., 69, 1305–1316, https://doi.org/10.1017/jog.2023.18, 2023.
 * Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., and Moore, R.: Google Earth Engine: Planetary-scale geospatial analysis for everyone, Remote Sens. Environ., 202, 18–27, https://doi.org/10.1016/j.rse.2017.06.031, 2017.
