@@ -8,6 +8,8 @@ This directory contains all scripts used for data processing, analysis, and figu
 
 - [GEE](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/gee) contains Google Earth Engine (GEE) scripts used for data extraction, preprocessing, and analysis.
 
+  - [DifferentRegion](https://github.com/tomosglaciology/GlacialLakeExtractions/tree/main/scripts/gee/DifferentRegion) contains a generalised version of the exported classifier script, with a step-by-step tutorial for applying the trained classifier to a new study area.
+
 ### Notes
 
 - See the README within each subfolder for more detailed information on structure and usage.
