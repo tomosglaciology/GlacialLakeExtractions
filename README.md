@@ -32,7 +32,8 @@ broadly applicable to other glaciated regions. The
 folder contains a ready-to-adapt script (`NewRegion`) and a step-by-step tutorial for applying
 the trained classifier at your own study area.
 
-If you would like to directly view our approach, **[open the NewRegion script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FGlacialLakeExtraction%3ANewRegion)**.
+If you would like to directly view our approach, **[Open the script directly in Google Earth Engine](https://code.earthengine.google.com/?scriptPath=users%2Ftomosdanielmorgan%2FGlacialLakeExtraction%3APatagoniaExample).**
+
 
 If you want to add the whole repository to your own Google Earth Engine account, you can do so here: [Add GlacialLakeExtraction repository](https://code.earthengine.google.com/?accept_repo=users/tomosdanielmorgan/GlacialLakeExtraction).
 
