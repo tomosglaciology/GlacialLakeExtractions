@@ -15,7 +15,7 @@ Everything else in the script can be left exactly as it is.
 The classifier is stored as a Google Earth Engine (GEE) asset, exported with
 `Export.classifier.toAsset()`. Other users cannot load it unless it has been shared with them.
 
-- **Asset owner (repo maintainer):** In the GEE Code Editor, go to the **Assets** tab, select the
+- **Asset owner:** In the GEE Code Editor, go to the **Assets** tab, select the
   classifier asset, click **Share**, and either add specific users' email addresses or set the
   asset visibility to "Anyone can read" if you're happy for it to be publicly reusable.
 - **New user:** Once shared, update the asset path at marker `#1`:
